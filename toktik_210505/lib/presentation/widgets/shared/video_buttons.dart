@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toktik_210505/config/helpers/human_formats.dart';
 import 'package:toktik_210505/domains/entities/video_post.dart';
 
 class VideoButtons extends StatelessWidget {
@@ -10,7 +11,10 @@ class VideoButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        _CustomIconButton(value: video.likes, iconData: Icons.favorite, color: Colors.red)
+        _CustomIconButton(
+            value: video.likes, iconData: Icons.favorite, color: Colors.red),
+        _CustomIconButton(
+            value: video.views, iconData: Icons.remove_red_eye_outlined)
       ],
     );
   }
@@ -19,17 +23,18 @@ class VideoButtons extends StatelessWidget {
 class _CustomIconButton extends StatelessWidget {
   final int value;
   final IconData iconData;
-  final Color color;
+  final Color? color;
 
   const _CustomIconButton(
-      {required this.value, required this.iconData, required this.color});
+      {required this.value, required this.iconData, this.color});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.favorite, color: Colors.red)),
-        Text('$value')
+        IconButton(
+            onPressed: () {}, icon: Icon(iconData, color: color, size: 30)),
+        Text(HumanFormats.humanReadbleNumber(value.toDouble()))
       ],
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toktik_210505/config/app_theme.dart';
+import 'package:toktik_210505/config/theme/app_theme.dart';
 import 'package:toktik_210505/presentation/providers/discover_provider.dart';
 import 'package:toktik_210505/presentation/screens/discover/discover_screen.dart';
 import 'package:provider/provider.dart';
